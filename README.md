@@ -22,15 +22,15 @@ Please install following instructions supplied by the [nnU-Net](https://github.c
 For image enhancement with non-local means filtering and adaptive histogram equalisation, the required scripts can be provided in our repository.
 Please copy the scripts into the appropriate nnUNetv2 directory.
 
-nnUNetv2/
-    ├── imageio/
-    │    ├── agno_ahe_sitk_reader_writer.py
-    │    ├── agnositk_reader_writer.py
-    │    └── reader_writer_registry.py
-    └── preprocessing/
-         └── normalization/
-             ├── default_normalization_schemes.py
-             └── map_channel_name_to_normalization.py
+nnUNetv2
+├── imageio
+│   ├── agno_ahe_sitk_reader_writer.py
+│   ├── agnositk_reader_writer.py
+│   └── reader_writer_registry.py
+└── preprocessing
+    └── normalization
+        ├── default_normalization_schemes.py
+        └── map_channel_name_to_normalization.py
 
 These will also be required to run spatially agnostic image handling.
 
