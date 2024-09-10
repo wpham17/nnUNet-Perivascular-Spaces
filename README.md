@@ -24,14 +24,13 @@ Please copy the scripts into the appropriate nnUNetv2 directory.
 
 nnUNetv2/
     ├── imageio/
-    │   ├── agno_ahe_sitk_reader_writer.py
-    │   ├── agnositk_reader_writer.py
-    │   └── reader_writer_registry.py
+    │    ├── agno_ahe_sitk_reader_writer.py
+    │    ├── agnositk_reader_writer.py
+    │    └── reader_writer_registry.py
     └── preprocessing/
-         ├── normalization/
+         └── normalization/
              ├── default_normalization_schemes.py
              └── map_channel_name_to_normalization.py
-
 
 These will also be required to run spatially agnostic image handling.
 
