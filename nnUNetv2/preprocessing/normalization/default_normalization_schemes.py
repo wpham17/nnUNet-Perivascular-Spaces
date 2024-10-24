@@ -82,26 +82,26 @@ class T1wPVSNormalization(ImageNormalization):
             #image /= (max(std, 1e-8))
         """
         #WP: 1. otsu mask, 2. 
-        thresh = threshold_otsu(image)
-        mask = image > thresh
-        mask = binary_dilation(mask, iterations=5)
-        cleaned_image = np.where(mask, image, 0)
+        #thresh = threshold_otsu(image)
+        #mask = image > thresh
+        #mask = binary_dilation(mask, iterations=5)
+        #image = np.where(mask, image, 0)
         
-        min_brain_intensity = np.min(cleaned_image[np.where(cleaned_image!=0)])
-        max_brain_intensity = np.max(cleaned_image[np.where(cleaned_image!=0)])
+        min_brain_intensity = np.min(image[np.where(image!=0)])
+        max_brain_intensity = np.max(image[np.where(image!=0)])
         
-        cleaned_image[cleaned_image<min_brain_intensity] = min_brain_intensity
-        cleaned_image[cleaned_image>max_brain_intensity] = max_brain_intensity
-        p1, p2 = np.percentile(cleaned_image, (2,98))
+        image[image<min_brain_intensity] = min_brain_intensity
+        image[image>max_brain_intensity] = max_brain_intensity
+        p1, p2 = np.percentile(image, (2,98))
         
-        mask = cleaned_image > 0#p1
-        cleaned_image = exposure.rescale_intensity(cleaned_image, in_range=(p1, p2))
+        mask = image > 0#p1
+        image = exposure.rescale_intensity(image, in_range=(p1, p2))
         
-        sigma = estimate_sigma(cleaned_image)
+        sigma = estimate_sigma(image)
         sigma = sigma/2
         #print(sigma)
         
-        image = nlmeans(cleaned_image, mask=mask, sigma=sigma, patch_radius=1,block_radius=2, rician=True)
+        image = nlmeans(image, mask=mask, sigma=sigma, patch_radius=1,block_radius=2, rician=True)
         image = exposure.equalize_adapthist(image)
         return image
 
