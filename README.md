@@ -50,8 +50,6 @@ nnUNetv2_install_pretrained_model_from_zip
 Model inference can be performed with:
 ```bash
 nnUNetv2_predict -i INPUT_FOLDER -o OUTPUT_FOLDER -d DATASET_NAME_OR_ID -c CONFIGURATION --save_probabilities
-
-
 ```
 
 # Acknowledgements
@@ -63,3 +61,16 @@ Our nnU-Net models were optimised for perivascular spaces segmentation in MRI sc
 The models are covered under the Creative Common License [BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ![Creative Common Licence BY-NC-SA](misc/by-nc-sa.png)
+
+## Publication
+```
+@misc{pham2024comprehensiveframeworkautomatedsegmentation,
+      title={A Comprehensive Framework for Automated Segmentation of Perivascular Spaces in Brain MRI with the nnU-Net}, 
+      author={William Pham and Alexander Jarema and Donggyu Rim and Zhibin Chen and Mohamed S. H. Khlif and Vaughan G. Macefield and Luke A. Henderson and Amy Brodtmann},
+      year={2024},
+      eprint={2411.19564},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV},
+      url={https://arxiv.org/abs/2411.19564}, 
+}
+```
