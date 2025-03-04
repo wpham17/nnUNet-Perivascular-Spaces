@@ -48,6 +48,7 @@ nnUNetv2_install_pretrained_model_from_zip
 
 ## Inference
 To run inference, bash scripts for each model are included in the 'scripts' folders.
+
 In general, model inference can be performed with this function:
 ```bash
 nnUNetv2_predict -i <INPUT_FOLDER> -o <OUTPUT_FOLDER> -d <DATASET_NAME_OR_ID> -tr nnUNetTrainer -c 3d_fullres -p nnUNetResEncUNetMPlans
