@@ -14,7 +14,7 @@ There are five models based on different MRI sequences:
 5. T2w = WM-PVS and BG-PVS
 6. T2w+FLAIR = WM-PVS and BG-PVS, and WMH
 
-Model weights can be downloaded [here](https://drive.google.com/drive/folders/1CLO4kVeUsIl3Y4-zTlUTaB8sq4fUt_Zf?usp=sharing).
+Model weights can be downloaded [here](https://drive.google.com/drive/folders/14PAgatsxO2wSLsXohG7ladxEcYgz4Acg?usp=drive_link).
 
 
 ## Installation
@@ -64,26 +64,31 @@ nnUNetv2_predict -i <INPUT_FOLDER> -o <OUTPUT_FOLDER> -d <DATASET_NAME_OR_ID> -t
 | **Modality / Target**      | **DSC (%)** | **SEN (%)** | **PPV (%)** |
 | :------------------------- | :---------: | :---------: | :---------: |
 | **T1w**                    |             |             |             |
-|     Overall                |  79.2 ± 1.7 |  78.4 ± 1.8 |  83.5 ± 1.7 |
-|         WM-PVS             |  80.5 ± 0.5 |  79.8 ± 1.8 |  82.7 ± 1.9 |
-|         BG-PVS             |  77.9 ± 3.4 |  69.7 ± 4.0 |  89.7 ± 1.0 |
+| &nbsp;Overall              |  79.2 ± 1.7 |  78.4 ± 1.8 |  83.5 ± 1.7 |
+| &nbsp;&nbsp;WM-PVS         |  80.5 ± 0.5 |  79.8 ± 1.8 |  82.7 ± 1.9 |
+| &nbsp;&nbsp;BG-PVS         |  77.9 ± 3.4 |  69.7 ± 4.0 |  89.7 ± 1.0 |
 | **T1w + FLAIR**            |             |             |             |
-|     Overall                |  75.6 ± 3.4 |  70.3 ± 5.3 |  87.3 ± 3.6 |
-|         WM-PVS             |  75.3 ± 4.4 |  69.4 ± 7.5 |  85.5 ± 3.5 |
-|         BG-PVS             |  71.7 ± 3.1 |  61.8 ± 5.1 |  86.9 ± 4.9 |
-|         WMH                |  79.7 ± 7.6 |  74.7 ± 6.2 |  89.6 ± 5.9 |
+| &nbsp;Overall              |  75.6 ± 3.4 |  70.3 ± 5.3 |  87.3 ± 3.6 |
+| &nbsp;&nbsp;WM-PVS         |  75.3 ± 4.4 |  69.4 ± 7.5 |  85.5 ± 3.5 |
+| &nbsp;&nbsp;BG-PVS         |  71.7 ± 3.1 |  61.8 ± 5.1 |  86.9 ± 4.9 |
+| &nbsp;&nbsp;WMH            |  79.7 ± 7.6 |  74.7 ± 6.2 |  89.6 ± 5.9 |
 | **T2w**                    |             |             |             |
-|     Overall                |  84.7 ± 1.3 |  88.8 ± 2.1 |  92.7 ± 0.9 |
-|         WM-PVS             |  90.4 ± 0.9 |  90.4 ± 1.8 |  93.0 ± 1.1 |
-|         BG-PVS             |  79.1 ± 2.0 |  74.8 ± 8.1 |  88.7 ± 4.7 |
+| &nbsp;Overall              |  84.7 ± 1.3 |  88.8 ± 2.1 |  92.7 ± 0.9 |
+| &nbsp;&nbsp;WM-PVS         |  90.4 ± 0.9 |  90.4 ± 1.8 |  93.0 ± 1.1 |
+| &nbsp;&nbsp;BG-PVS         |  79.1 ± 2.0 |  74.8 ± 8.1 |  88.7 ± 4.7 |
 | **T2w + FLAIR**            |             |             |             |
-|     Overall                |  77.5 ± 2.7 |  79.8 ± 6.3 |  88.4 ± 3.1 |
-|         WM-PVS             |  87.6 ± 1.6 |  85.6 ± 2.7 |  88.8 ± 2.0 |
-|         BG-PVS             |  73.2 ± 3.3 |  65.3 ± 4.3 |  84.4 ± 6.0 |
-|         WMH                |  71.5 ± 6.1 | 67.3 ± 17.6 | 85.2 ± 15.7 |
+| &nbsp;Overall              |  77.5 ± 2.7 |  79.8 ± 6.3 |  88.4 ± 3.1 |
+| &nbsp;&nbsp;WM-PVS         |  87.6 ± 1.6 |  85.6 ± 2.7 |  88.8 ± 2.0 |
+| &nbsp;&nbsp;BG-PVS         |  73.2 ± 3.3 |  65.3 ± 4.3 |  84.4 ± 6.0 |
+| &nbsp;&nbsp;WMH            |  71.5 ± 6.1 | 67.3 ± 17.6 | 85.2 ± 15.7 |
 | **T1w (Regional Targets)** |             |             |             |
-|         MB-PVS             |  64.3 ± 6.5 |  53.6 ± 8.6 |  81.1 ± 2.7 |
-|         HP-PVS             |  67.8 ± 5.0 |  57.6 ± 6.4 |  87.8 ± 5.9 |
+| &nbsp;&nbsp;MB-PVS         |  64.3 ± 6.5 |  53.6 ± 8.6 |  81.1 ± 2.7 |
+| &nbsp;&nbsp;HP-PVS         |  67.8 ± 5.0 |  57.6 ± 6.4 |  87.8 ± 5.9 |
+
+
+## PVS Pseudo-Labels
+Pseudo-labels from 12,605 T1w MRI scans across 17 open-access datasets are available [here](https://drive.google.com/drive/folders/1CLO4kVeUsIl3Y4-zTlUTaB8sq4fUt_Zf?usp=sharing).
+See the [preprint](https://arxiv.org/abs/2411.19564) for dataset sources and instructions to access the original T1w images.
 
 # Acknowledgements
 <img src="misc/monash_logo.png" height="100px" />
