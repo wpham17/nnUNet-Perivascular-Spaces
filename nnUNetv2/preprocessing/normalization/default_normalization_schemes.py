@@ -89,19 +89,22 @@ class T1wPVSNormalization(ImageNormalization):
         
         min_brain_intensity = np.min(image[np.where(image!=0)])
         max_brain_intensity = np.max(image[np.where(image!=0)])
-        
+
         image[image<min_brain_intensity] = min_brain_intensity
         image[image>max_brain_intensity] = max_brain_intensity
-        p1, p2 = np.percentile(image, (2,98))
-        
+        p1, p2 = np.percentile(image, (1,99))
+
         mask = image > 0#p1
         image = exposure.rescale_intensity(image, in_range=(p1, p2))
-        
+
         sigma = estimate_sigma(image)
         sigma = sigma/2
         #print(sigma)
-        
+
         image = nlmeans(image, mask=mask, sigma=sigma, patch_radius=1,block_radius=2, rician=True)
+        p1, p2 = np.percentile(image, (0,98))
+        image = exposure.rescale_intensity(image, in_range=(p1, p2))
+        #print(f"{np.min(image)}, {np.max(image)}")
         image = exposure.equalize_adapthist(image)
         return image
 
