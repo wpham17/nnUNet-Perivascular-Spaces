@@ -109,6 +109,37 @@ class T1wPVSNormalization(ImageNormalization):
         return image
 
 #WP
+class T2wPVSNormalization(ImageNormalization):
+    leaves_pixels_outside_mask_at_zero_if_use_mask_for_norm_is_true = True
+
+    def run(self, image: np.ndarray, seg: np.ndarray = None) -> np.ndarray:
+        #WP: 1. otsu mask, 2. 
+        #thresh = threshold_otsu(image)
+        #mask = image > thresh
+        #mask = binary_dilation(mask, iterations=5)
+        #cleaned_image = np.where(mask, image, 0)
+        #cleaned_image = image.copy()
+        min_brain_intensity = np.min(image[np.where(image!=0)])
+        max_brain_intensity = np.max(image[np.where(image!=0)])
+        
+        image[image<min_brain_intensity] = min_brain_intensity
+        image[image>max_brain_intensity] = max_brain_intensity
+        p1, p2 = np.percentile(image, (2,98))
+        
+        mask = image > 0#p1
+        image = exposure.rescale_intensity(image, in_range=(p1, p2))
+        
+        sigma = estimate_sigma(image)
+        sigma = sigma/2
+        #print(sigma)
+        
+        image = nlmeans(image, mask=mask, sigma=sigma, patch_radius=1,block_radius=2, rician=True)
+        p1, p2 = np.percentile(image, (0,98))
+        image = exposure.rescale_intensity(image, in_range=(p1, p2))
+        image = exposure.equalize_adapthist(image)
+        return image
+
+#WP
 class AHENormalization(ImageNormalization):
     leaves_pixels_outside_mask_at_zero_if_use_mask_for_norm_is_true = True
 
